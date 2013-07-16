@@ -1,28 +1,15 @@
 {
-  "name": "express-route-map",
-  "version": "0.0.2",
+  "name": "express-path",
+  "version": "0.0.3",
   "author": "Hyubs Ursua",
   "main": "index.js",
-  "bin": {
-    "express-route-map": "index.js"
-  },
-	"keywords": ["express", "route"],
+  "keywords": ["express", "route"],
   "repository": {
     "type": "git",
-    "url": "https://github.com/hyubs/express-route-map.git"
+    "url": "https://github.com/hyubs/express-path.git"
   },
   "dependencies": {
     "express": "*"
-  },
-  "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-jshint": "~0.6.0",
-    "grunt-contrib-nodeunit": "~0.2.0",
-    "grunt-contrib-uglify": "~0.2.2",
-    "phantom": "~0.5.1",
-    "grunt-shell": "~0.3.1",
-    "grunt-remove-logging": "~0.1.1",
-    "step": "0.0.5"
   },
   "engines": {
     "node": "*"

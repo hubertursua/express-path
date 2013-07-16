@@ -1,4 +1,0 @@
-// express-route-map v0.0.2 (2013-07-17) 
-// by Hyubs Ursua 
-// https://github.com/hyubs/express-route-map.git 
-exports.init=function(a,b){var c="./";a.routeMapper=function(a,b,d){var e=b.split("#");if(2!==e.length)throw new Error("controllerMethod parameter should contain both the controller and the method concatenated by a # symbol.");var f=e[0],g=e[1];d||(d="all");var h;try{h=require(c+f)}catch(i){throw new Error("Could not load controller "+f+" for routing.")}var j;if("undefined"==typeof h[g])throw new Error("Could not load method "+f+"#"+g+" for routing.");return j=h[g],this[d](a,j)};for(var d in b){var e=b[d];2==e.length?a.routeMapper(e[0],e[1]):a.routeMapper(e[0],e[1],e[3])}};
