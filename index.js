@@ -1,9 +1,25 @@
-exports.init = function(app, routes, controllersDirPath) {
-	var CONTROLLERS_DIR_PATH = require('path').dirname(module.parent.filename)  + '/routes/';
+var path = require('path');
 
-	if(controllersDirPath) {
-		CONTROLLERS_DIR_PATH = controllersDirPath
+/*
+Parameters:
+	@app = Express app instance
+	@routes = Array defining the routes to be mapped
+	@params = {
+		controllersDir = Directory of the controllers relative to the main script
 	}
+*/
+
+exports.init = function(app, routes, params) {
+	var CONTROLLERS_DIR_PATH = path.dirname(module.parent.filename) + path.sep;
+
+	if(params.controllersDir) {
+		CONTROLLERS_DIR_PATH += params.controllersDir;
+	}
+	else {
+		CONTROLLERS_DIR_PATH += 'controllers';
+	}
+
+	CONTROLLERS_DIR_PATH = path.normalize(CONTROLLERS_DIR_PATH + path.sep);
 
 	console.log('CONTROLLERS_DIR_PATH: ' + CONTROLLERS_DIR_PATH);
 
