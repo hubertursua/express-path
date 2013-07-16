@@ -41,7 +41,7 @@ exports.init = function(app, routes) {
 			app.routeMapper(route[0], route[1]);
 		}
 		else {
-			app.routeMapper(route[0], route[1], route[3]);
+			app.routeMapper(route[0], route[1], route[2]);
 		}
 	}
 }
