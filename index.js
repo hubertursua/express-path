@@ -1,4 +1,4 @@
-module.exports.init = function(app, routes) {
+exports.init = function(app, routes) {
 	var CONTROLLERS_DIR_PATH = './';
 
 	app.routeMapper = function(route, controllerMethod, requestType) {
