@@ -2,6 +2,9 @@
 
 Easy route mapping for Express
 
+[![Build Status](https://travis-ci.org/hyubs/express-path.png?branch=master)](https://travis-ci.org/hyubs/express-path)
+[![Dependency Status](https://gemnasium.com/hyubs/express-path.png)](https://gemnasium.com/hyubs/express-path)
+
 ## Installation
 
 via npm:
