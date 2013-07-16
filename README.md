@@ -1,4 +1,6 @@
-# Express Path - Easy route mapping for Express
+# Express Path
+
+Easy route mapping for Express
 
 ## Installation
 
