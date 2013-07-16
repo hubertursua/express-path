@@ -1,5 +1,8 @@
-exports.init = function(app, routes) {
-	var CONTROLLERS_DIR_PATH = './';
+exports.init = function(app, routes, controllersDirPath) {
+	var CONTROLLERS_DIR_PATH = require('path').dirname(module.parent.filename)  + '/routes/';
+
+	if(controllersDirPath) {
+		CONTROLLERS_DIR_PATH = controllersDirPath
 	}
 
 	console.log('CONTROLLERS_DIR_PATH: ' + CONTROLLERS_DIR_PATH);
