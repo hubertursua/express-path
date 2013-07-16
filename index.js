@@ -1,5 +1,8 @@
 exports.init = function(app, routes) {
 	var CONTROLLERS_DIR_PATH = './';
+	}
+
+	console.log('CONTROLLERS_DIR_PATH: ' + CONTROLLERS_DIR_PATH);
 
 	app.routeMapper = function(route, controllerMethod, requestType) {
 		var cmArr = controllerMethod.split('#');
@@ -31,6 +34,7 @@ exports.init = function(app, routes) {
 			throw new Error("Could not load method " + controller + "#" + method + " for routing.");
 		}
 
+		console.log("[" + requestType.toUpperCase() + "] " + route + " -> " + controllerMethod);
 		return this[requestType](route, routeMethod);
 	};
 
