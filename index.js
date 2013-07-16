@@ -1,3 +1,7 @@
+// Express Path v0.0.3 (2013-07-17)
+// by Hyubs Ursua
+// https://github.com/hyubs/express-path.git
+
 var path = require('path');
 
 /*
@@ -8,20 +12,19 @@ Parameters:
 		controllersDir = Directory of the controllers relative to the main script
 	}
 */
-
 exports.init = function(app, routes, params) {
-	var CONTROLLERS_DIR_PATH = path.dirname(module.parent.filename) + path.sep;
+	var CONTROLLERS_PATH = path.dirname(module.parent.filename) + path.sep;
 
-	if(params.controllersDir) {
-		CONTROLLERS_DIR_PATH += params.controllersDir;
+	if(params.controllersPath) {
+		CONTROLLERS_PATH += params.controllersPath;
 	}
 	else {
-		CONTROLLERS_DIR_PATH += 'controllers';
+		CONTROLLERS_PATH += 'controllers';
 	}
 
-	CONTROLLERS_DIR_PATH = path.normalize(CONTROLLERS_DIR_PATH + path.sep);
+	CONTROLLERS_PATH = path.normalize(CONTROLLERS_PATH + path.sep);
 
-	console.log('CONTROLLERS_DIR_PATH: ' + CONTROLLERS_DIR_PATH);
+	console.log('CONTROLLERS_PATH: ' + CONTROLLERS_PATH);
 
 	app.routeMapper = function(route, controllerMethod, requestType) {
 		var cmArr = controllerMethod.split('#');
@@ -39,7 +42,7 @@ exports.init = function(app, routes, params) {
 
 		var routeController;
 		try {
-			routeController = require(CONTROLLERS_DIR_PATH + controller);
+			routeController = require(CONTROLLERS_PATH + controller);
 		}
 		catch(err) {
 			throw new Error("Could not load controller " + controller + " for routing.");
