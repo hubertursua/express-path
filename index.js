@@ -63,7 +63,7 @@ exports.init = function(app, routes, params) {
 		if(route.length == 2) {
 			app.routeMapper(route[0], route[1]);
 		}
-		else {
+		else if (route.length == 3) {
 			app.routeMapper(route[0], route[1], route[2]);
 		}
 	}
