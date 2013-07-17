@@ -1,6 +1,7 @@
 {
   "name": "express-path",
-  "version": "0.0.5",
+  "version": "0.1.0",
+  "description": "Easy route mapping for Express",
   "author": "Hyubs Ursua",
   "main": "index.js",
   "keywords": ["express", "route"],
