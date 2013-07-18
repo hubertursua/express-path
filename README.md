@@ -137,7 +137,7 @@ expressPath(app, routes, { "controllersPath" : "routes" });
 	cd /home/user/mynodeapp
 	node app.js
 
-	# Express Path will try to look for your controllers in /home/user/mynodeapp/controllers
+	// Express Path will try to look for your controllers in /home/user/mynodeapp/controllers
 	```
 
 ## License
