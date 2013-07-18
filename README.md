@@ -13,6 +13,11 @@ via npm:
 $ npm install express-path
 ```
 
+## Updates and Changes
+
+* 2013-07-18 - Started refactoring the code for v0.1.0. Most notable difference is I removed `init()` and replaced it with `()`. Also, you can now pass a file name for the route map and Express Path will load it.
+
+
 ## Usage
 
 ### Express Application
@@ -22,51 +27,75 @@ Here's a quick example on how to use this module with your Express application.
 ```javascript
 var express = require('express');
 var app = express();
+var expressPath = require('express-path')
 
 // Your express settings here
 
-// Just before you start your http server, initialize express-path
 var routes = [
 	// Route mapping here
 ];
-require('express-path').init(app, routes);
+expressPath(app, routes);
+
+// All your other stuff before the server starts
 ```
 
 ### Route Mapping
 
-The 2nd parameter of `init()` is a 2-dimensional array in the format as shown below.
+The 2nd parameter of `()` can be any of the following:
 
-```javascript
-[
-	[urlPath, controllerMethod, httpRequestMethod],
-	[urlPath, controllerMethod, httpRequestMethod],
-	[urlPath, controllerMethod, httpRequestMethod], // etc
-]
-```
+* 	a 2-dimensional array in the format as shown below
 
-Example
+	```javascript
+	[
+		[urlPath, controllerMethod, httpRequestMethod],
+		[urlPath, controllerMethod, httpRequestMethod],
+		[urlPath, controllerMethod, httpRequestMethod], // etc
+	]
+	```
 
-```javascript
-[
-	['/', 'index#index'],
-	['users/add', 'users#add', 'post'],
-	['users', 'users#list', 'get']
-]
-```
+	Example
 
-* 	`urlPath` is the URL path relative to the root of your Node.JS app server.
-* 	`controllerMethod` is a \# delimeted string containing the controller (the JS file) and the method (the JS function of the route).
-* 	`httpRequestMethod` is an optional parameter which tells Express which type of HTTP requests will be routed to the controller's method. Accepted parameters are listed below.
-	* 	all (any HTTP request)
-	*	get
-	* 	post
-	* 	put
-	* 	delete
+	```javascript
+	// In your app.js
+	var routes = [
+		['/', 'index#index'],
+		['users/add', 'users#add', 'post'],
+		['users', 'users#list', 'get']
+	];
+	expressPath(app, routes);
+	```
+
+	* 	`urlPath` is the URL path relative to the root of your Node.JS app server.
+	* 	`controllerMethod` is a \# delimeted string containing the controller (the JS file) and the method (the JS function of the route).
+	* 	`httpRequestMethod` is an optional parameter which tells Express which type of HTTP requests will be routed to the controller's method. Accepted parameters are listed below.
+		* 	`all` (any HTTP request)
+		*	`get`
+		* 	`post`
+		* 	`put`
+		* 	`delete`
+
+* 	a string containing a relative path to your route map file
+
+	If you are using a separate file, just use `module.exports` with your array.
+
+	```javascript
+	// In your routeMap.js
+	module.exports = [
+		['/', 'index#index'],
+		['users/add', 'users#add', 'post'],
+		['users', 'users#list', 'get']
+	];
+
+	// In your app.js
+	expressPath(app, 'routeMap');
+	```
 
 
 ### Controllers/Methods
 
 Just follow the default Express routes file for your controllers.
+
+By default, Express Path will look for your files under `/controllers/`.
 
 ```javascript
 // For example this is in controllers/users.js
@@ -82,7 +111,7 @@ var routes = [
 	['/users/login', 'users#login']
 ];
 
-require('express-path').init(app, routes);
+expressPath(app, routes);
 ```
 
 You can now go to `/users/login` to see your page.
@@ -90,12 +119,12 @@ You can now go to `/users/login` to see your page.
 
 ### Parameters
 
-You can add a 3rd parameter in `init()` to set optional parameters.
+You can add a 3rd parameter in `()` to set optional parameters (currently, there's only one option available).
 
 Example
 
 ```javascript
-require('express-path').init(app, routes, { "controllersPath" : "routes" });
+expressPath(app, routes, { "controllersPath" : "routes" });
 ```
 
 *	`controllersPath` (string) - Defaults to "controllers"
@@ -111,31 +140,15 @@ require('express-path').init(app, routes, { "controllersPath" : "routes" });
 	# Express Path will try to look for your controllers in /home/user/mynodeapp/controllers
 	```
 
-
-
-
-
 ## License
 
-(The MIT License)
+MIT License. Read the LICENSE file.
 
-Copyright (c) 2013 Hyubs Ursua
+In summary, you can do whatever you want with the code but if it breaks, sorry :(
 
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-'Software'), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
 
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
+## Contributions
 
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+If you find bugs or think some parts can be improved, please post the request on GitHub.
+
+If you want to fix it yourself, kudos! Fork the repo, do your magic, and invoke a pull request. I'll be sure to thank you and add you here as a contributor.
