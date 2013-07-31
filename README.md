@@ -15,6 +15,7 @@ $ npm install express-path
 
 ## Updates and Changes
 
+* 2013-07-31 - This project is gaining some modest amount of attention. Thank you! Started working on v0.2.0. Refactoring the code so that I can include unit tests. No major features added (yet). Feel free to file bug reports or enhancement requests.
 * 2013-07-18 - Started refactoring the code for v0.1.0. Most notable difference is I removed `init()` and replaced it with `()`. Also, you can now pass a file name for the route map and Express Path will load it.
 
 
