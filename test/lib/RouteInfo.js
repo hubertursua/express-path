@@ -17,6 +17,7 @@ module.exports = function (should) {
 		*/
 		describe('#sanitizeUrlPath()', function () {
 			it('should return the URL path if it is already valid', function () {
+				(new RouteInfo).sanitizeUrlPath('/').should.equal('/');
 				(new RouteInfo).sanitizeUrlPath(validUrlPath).should.equal(validUrlPath);
 			});
 
