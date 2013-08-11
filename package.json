@@ -10,7 +10,7 @@
     "url": "https://github.com/hyubs/express-path.git"
   },
   "dependencies": {
-    "express": "*"
+    
   },
   "engines": {
     "node": "*"
