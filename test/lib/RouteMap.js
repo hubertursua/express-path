@@ -3,6 +3,8 @@ module.exports = function (should) {
 		var RouteMap = require('../../lib/RouteMap');
 		var validPath = __dirname + '/../dummies/controller.js';
 		var invalidPath = __dirname + '/oh/alderaan';
+		var validRouteMapPath = __dirname + '/../dummies/routeMap.js';
+		var validRouteMap = require(validRouteMapPath);
 
 		describe('#getFile()', function () {
 			it('should return the contents of the file if path exists', function () {
@@ -42,7 +44,7 @@ module.exports = function (should) {
 			};
 
 			it('should return contents from a file if a string was passed', function () {
-				routeMap.eval('llama/peaches').should.equal(routeFileContents);
+				routeMap.eval(validRouteMapPath).should.equal(validRouteMap);
 			});
 
 			it('should return back the value if an array was passed', function () {
