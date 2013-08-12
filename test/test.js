@@ -1,9 +1,9 @@
 var should = require("should");
 
 var tests = [
-	'lib/ControllerHandler',
 	'lib/ErrorHandler',
 	'lib/MethodHandler',
+	'lib/ModuleHandler',
 	'lib/RouteInfo',
 	'lib/RouteMap'
 ];

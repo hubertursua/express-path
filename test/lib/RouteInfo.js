@@ -43,48 +43,48 @@ module.exports = function (should) {
 			});
 		});
 
-		describe('#isValidCMPath()', function () {
+		describe('#isValidMMPath()', function () {
 			it('should return true if the CM path is valid', function () {
-				(new RouteInfo).isValidCMPath(validCMPath).should.equal(true);
-				(new RouteInfo).isValidCMPath(validCMPathWithFolder).should.equal(true);
+				(new RouteInfo).isValidMMPath(validCMPath).should.equal(true);
+				(new RouteInfo).isValidMMPath(validCMPathWithFolder).should.equal(true);
 
-				(new RouteInfo).isValidCMPath('/' + validCMPath).should.equal(true);
-				(new RouteInfo).isValidCMPath('/' + validCMPathWithFolder).should.equal(true);
+				(new RouteInfo).isValidMMPath('/' + validCMPath).should.equal(true);
+				(new RouteInfo).isValidMMPath('/' + validCMPathWithFolder).should.equal(true);
 
-				(new RouteInfo).isValidCMPath(validCMPath + '/').should.equal(true);
-				(new RouteInfo).isValidCMPath(validCMPathWithFolder + '/').should.equal(true);
+				(new RouteInfo).isValidMMPath(validCMPath + '/').should.equal(true);
+				(new RouteInfo).isValidMMPath(validCMPathWithFolder + '/').should.equal(true);
 
-				(new RouteInfo).isValidCMPath('/' + validCMPath + '/').should.equal(true);
-				(new RouteInfo).isValidCMPath('/' + validCMPathWithFolder + '/').should.equal(true);
+				(new RouteInfo).isValidMMPath('/' + validCMPath + '/').should.equal(true);
+				(new RouteInfo).isValidMMPath('/' + validCMPathWithFolder + '/').should.equal(true);
 			});
 
 			it('should return false if the CM path does not contain a #', function () {
-				(new RouteInfo).isValidCMPath(invalidCMPath).should.equal(false);
-				(new RouteInfo).isValidCMPath(invalidCMPathWithFolder).should.equal(false);
+				(new RouteInfo).isValidMMPath(invalidCMPath).should.equal(false);
+				(new RouteInfo).isValidMMPath(invalidCMPathWithFolder).should.equal(false);
 
-				(new RouteInfo).isValidCMPath('/' + invalidCMPath).should.equal(false);
-				(new RouteInfo).isValidCMPath('/' + invalidCMPathWithFolder).should.equal(false);
+				(new RouteInfo).isValidMMPath('/' + invalidCMPath).should.equal(false);
+				(new RouteInfo).isValidMMPath('/' + invalidCMPathWithFolder).should.equal(false);
 
-				(new RouteInfo).isValidCMPath(invalidCMPath + '/').should.equal(false);
-				(new RouteInfo).isValidCMPath(invalidCMPathWithFolder + '/').should.equal(false);
+				(new RouteInfo).isValidMMPath(invalidCMPath + '/').should.equal(false);
+				(new RouteInfo).isValidMMPath(invalidCMPathWithFolder + '/').should.equal(false);
 
-				(new RouteInfo).isValidCMPath('/' + invalidCMPath + '/').should.equal(false);
-				(new RouteInfo).isValidCMPath('/' + invalidCMPathWithFolder + '/').should.equal(false);
+				(new RouteInfo).isValidMMPath('/' + invalidCMPath + '/').should.equal(false);
+				(new RouteInfo).isValidMMPath('/' + invalidCMPathWithFolder + '/').should.equal(false);
 			});
 
 			it('should return false if there is no controller name', function () {
-				(new RouteInfo).isValidCMPath('#bark').should.equal(false);
+				(new RouteInfo).isValidMMPath('#bark').should.equal(false);
 			});
 
 			it('should return false if there is no method name', function () {
-				(new RouteInfo).isValidCMPath('beagle#').should.equal(false);
+				(new RouteInfo).isValidMMPath('beagle#').should.equal(false);
 			});
 		});
 
-		describe('#getControllerPath()', function () {
+		describe('#getModulePath()', function () {
 			it('should return the relative path of the controller appended with .js', function () {
-				(new RouteInfo).getControllerPath(validCMPath).should.equal(validCMPathFile);
-				(new RouteInfo).getControllerPath(validCMPathWithFolder).should.equal(validCMPathWithFolderFile);
+				(new RouteInfo).getModulePath(validCMPath).should.equal(validCMPathFile);
+				(new RouteInfo).getModulePath(validCMPathWithFolder).should.equal(validCMPathWithFolderFile);
 			});
 		});
 
