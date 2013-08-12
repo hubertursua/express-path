@@ -4,7 +4,7 @@
   "description": "Easy route mapping for Express",
   "author": "Hyubs Ursua",
   "main": "index.js",
-  "homepage": "http://hyubs.github.com/express-path",
+  "homepage": "http://hyubs.github.io/express-path",
   "keywords": [
     "express",
     "route",
