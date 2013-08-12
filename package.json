@@ -1,18 +1,31 @@
 {
   "name": "express-path",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "Easy route mapping for Express",
   "author": "Hyubs Ursua",
   "main": "index.js",
-  "keywords": ["express", "route"],
+  "homepage": "http://hyubs.github.com/express-path",
+  "keywords": [
+    "express",
+    "route",
+    "routes",
+    "routing"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/hyubs/express-path.git"
   },
   "dependencies": {
-    "express": "*"
+    "string": "~1.5.0"
+  },
+  "devDependencies": {
+    "mocha": "~1.12.0",
+    "should": "~1.2.2"
+  },
+  "scripts": {
+    "test": "mocha test"
   },
   "engines": {
-    "node": "*"
+    "node": ">= 0.6.4"
   }
 }
