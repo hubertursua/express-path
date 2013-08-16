@@ -1,6 +1,6 @@
 {
   "name": "express-path",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Easy route mapping for Express",
   "author": "Hyubs Ursua",
   "main": "index.js",
@@ -20,10 +20,11 @@
   },
   "devDependencies": {
     "mocha": "~1.12.0",
-    "should": "~1.2.2"
+    "should": "~1.2.2",
+    "underscore": "~1.5.1"
   },
   "scripts": {
-    "test": "mocha test"
+    "test": "mocha --reporter spec --recursive test"
   },
   "engines": {
     "node": ">= 0.6.4"
