@@ -66,7 +66,7 @@ describe('ErrorHandler', function () {
 		});
 
 		describe('#log()', function () {
-			it('should throw not an error', function () {
+			it('should not throw an error', function () {
 				(function(){
 					errorHandler.log(msg);
 				}).should.not.throw();
