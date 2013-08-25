@@ -3,14 +3,14 @@ var should = require("should");
 describe('RouteInfo', function () {
 	var RouteInfo = require('../../lib/RouteInfo');
 	var validUrlPath = '/beagle/bark';
-	var validCMPath = 'beagle#bark';
-	var validCMPathWithFolder = 'dogs/beagle#bark';
-	var validCMPathFile = 'beagle.js';
-	var validCMPathWithFolderFile = 'dogs/beagle.js';
-	var validCMPathMethod = 'bark';
-	var validCMPathWithFolderMethod = 'bark';
-	var invalidCMPath = 'oh/alderaan';
-	var invalidCMPathWithFolder = 'oh/noes/alderaan';
+	var validMMPath = 'beagle#bark';
+	var validMMPathWithFolder = 'dogs/beagle#bark';
+	var validMMPathFile = 'beagle.js';
+	var validMMPathWithFolderFile = 'dogs/beagle.js';
+	var validMMPathMethod = 'bark';
+	var validMMPathWithFolderMethod = 'bark';
+	var invalidMMPath = 'oh/alderaan';
+	var invalidMMPathWithFolder = 'oh/noes/alderaan';
 
 	/*
 	It should  be flexible to catch some inconsistencies or typos, but catching
@@ -45,32 +45,32 @@ describe('RouteInfo', function () {
 	});
 
 	describe('#isValidMMPath()', function () {
-		it('should return true if the CM path is valid', function () {
-			(new RouteInfo).isValidMMPath(validCMPath).should.equal(true);
-			(new RouteInfo).isValidMMPath(validCMPathWithFolder).should.equal(true);
+		it('should return true if the MM path is valid', function () {
+			(new RouteInfo).isValidMMPath(validMMPath).should.equal(true);
+			(new RouteInfo).isValidMMPath(validMMPathWithFolder).should.equal(true);
 
-			(new RouteInfo).isValidMMPath('/' + validCMPath).should.equal(true);
-			(new RouteInfo).isValidMMPath('/' + validCMPathWithFolder).should.equal(true);
+			(new RouteInfo).isValidMMPath('/' + validMMPath).should.equal(true);
+			(new RouteInfo).isValidMMPath('/' + validMMPathWithFolder).should.equal(true);
 
-			(new RouteInfo).isValidMMPath(validCMPath + '/').should.equal(true);
-			(new RouteInfo).isValidMMPath(validCMPathWithFolder + '/').should.equal(true);
+			(new RouteInfo).isValidMMPath(validMMPath + '/').should.equal(true);
+			(new RouteInfo).isValidMMPath(validMMPathWithFolder + '/').should.equal(true);
 
-			(new RouteInfo).isValidMMPath('/' + validCMPath + '/').should.equal(true);
-			(new RouteInfo).isValidMMPath('/' + validCMPathWithFolder + '/').should.equal(true);
+			(new RouteInfo).isValidMMPath('/' + validMMPath + '/').should.equal(true);
+			(new RouteInfo).isValidMMPath('/' + validMMPathWithFolder + '/').should.equal(true);
 		});
 
-		it('should return false if the CM path does not contain a #', function () {
-			(new RouteInfo).isValidMMPath(invalidCMPath).should.equal(false);
-			(new RouteInfo).isValidMMPath(invalidCMPathWithFolder).should.equal(false);
+		it('should return false if the MM path does not contain a #', function () {
+			(new RouteInfo).isValidMMPath(invalidMMPath).should.equal(false);
+			(new RouteInfo).isValidMMPath(invalidMMPathWithFolder).should.equal(false);
 
-			(new RouteInfo).isValidMMPath('/' + invalidCMPath).should.equal(false);
-			(new RouteInfo).isValidMMPath('/' + invalidCMPathWithFolder).should.equal(false);
+			(new RouteInfo).isValidMMPath('/' + invalidMMPath).should.equal(false);
+			(new RouteInfo).isValidMMPath('/' + invalidMMPathWithFolder).should.equal(false);
 
-			(new RouteInfo).isValidMMPath(invalidCMPath + '/').should.equal(false);
-			(new RouteInfo).isValidMMPath(invalidCMPathWithFolder + '/').should.equal(false);
+			(new RouteInfo).isValidMMPath(invalidMMPath + '/').should.equal(false);
+			(new RouteInfo).isValidMMPath(invalidMMPathWithFolder + '/').should.equal(false);
 
-			(new RouteInfo).isValidMMPath('/' + invalidCMPath + '/').should.equal(false);
-			(new RouteInfo).isValidMMPath('/' + invalidCMPathWithFolder + '/').should.equal(false);
+			(new RouteInfo).isValidMMPath('/' + invalidMMPath + '/').should.equal(false);
+			(new RouteInfo).isValidMMPath('/' + invalidMMPathWithFolder + '/').should.equal(false);
 		});
 
 		it('should return false if there is no controller name', function () {
@@ -84,15 +84,15 @@ describe('RouteInfo', function () {
 
 	describe('#getModulePath()', function () {
 		it('should return the relative path of the controller appended with .js', function () {
-			(new RouteInfo).getModulePath(validCMPath).should.equal(validCMPathFile);
-			(new RouteInfo).getModulePath(validCMPathWithFolder).should.equal(validCMPathWithFolderFile);
+			(new RouteInfo).getModulePath(validMMPath).should.equal(validMMPathFile);
+			(new RouteInfo).getModulePath(validMMPathWithFolder).should.equal(validMMPathWithFolderFile);
 		});
 	});
 
 	describe('#getMethod()', function () {
 		it('should return the name of the method', function () {
-			(new RouteInfo).getMethod(validCMPath).should.equal(validCMPathMethod);
-			(new RouteInfo).getMethod(validCMPathWithFolder).should.equal(validCMPathWithFolderMethod);
+			(new RouteInfo).getMethod(validMMPath).should.equal(validMMPathMethod);
+			(new RouteInfo).getMethod(validMMPathWithFolder).should.equal(validMMPathWithFolderMethod);
 		});
 	});
 });
