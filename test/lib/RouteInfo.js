@@ -44,6 +44,34 @@ describe('RouteInfo', function () {
 		});
 	});
 
+	describe('#sanitizeMMPath()', function () {
+		it('should return the URL path if it is already valid', function () {
+			(new RouteInfo).sanitizeMMPath('/').should.equal('/');
+			(new RouteInfo).sanitizeMMPath(validMMPath).should.equal(validMMPath);
+		});
+
+		it('should return the URL path preceeded by a /', function () {
+			(new RouteInfo).sanitizeMMPath('/beagle#bark').should.equal(validMMPath);
+			(new RouteInfo).sanitizeMMPath('beagle#bark').should.equal(validMMPath);
+		});
+
+		it('should return the URL path without a trailing /', function () {
+			(new RouteInfo).sanitizeMMPath('/beagle#bark/').should.equal(validMMPath);
+			(new RouteInfo).sanitizeMMPath('beagle#bark/').should.equal(validMMPath);
+		});
+
+		it('should return the URL path without any whitespaces at the start and end', function () {
+			(new RouteInfo).sanitizeMMPath(' /beagle#bark').should.equal(validMMPath);
+			(new RouteInfo).sanitizeMMPath('  /beagle#bark').should.equal(validMMPath);
+			(new RouteInfo).sanitizeMMPath('	/beagle#bark').should.equal(validMMPath);
+			(new RouteInfo).sanitizeMMPath('/beagle#bark ').should.equal(validMMPath);
+			(new RouteInfo).sanitizeMMPath('/beagle#bark  ').should.equal(validMMPath);
+			(new RouteInfo).sanitizeMMPath('/beagle#bark	').should.equal(validMMPath);
+			(new RouteInfo).sanitizeMMPath(' /beagle#bark ').should.equal(validMMPath);
+			(new RouteInfo).sanitizeMMPath('	/beagle#bark	').should.equal(validMMPath);
+		});
+	});
+
 	describe('#isValidMMPath()', function () {
 		it('should return true if the MM path is valid', function () {
 			(new RouteInfo).isValidMMPath(validMMPath).should.equal(true);
