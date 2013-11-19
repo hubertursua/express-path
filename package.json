@@ -36,11 +36,5 @@
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/hyubs/express-path/issues"
-  },
-  "_id": "express-path@0.2.1",
-  "dist": {
-    "shasum": "1d1a4f552578190d9c62652ac99bb8ede1fe4957"
-  },
-  "_from": "express-path@~0.2.1",
-  "_resolved": "https://registry.npmjs.org/express-path/-/express-path-0.2.1.tgz"
+  }
 }
