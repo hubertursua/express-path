@@ -16,12 +16,9 @@ $ npm install express-path
 
 ## Updates and Changes
 
-* 2014-04-03 - Version 0.2.4 released. Updated outdated dependencies.
-* 2013-08-25 - Version 0.2.1 released. Major bug fix for those trying to pass array routes instead of a file path. Added acceptance test which runs various use cases for routes.
-* 2013-08-12 - Version 0.2.0 is out! Package was rewritten, making it testable. New major feature is the support for middlewares. Some minor features are turning on/off the console.logs and error throwing.
-* 2013-07-31 - This project is gaining some modest amount of attention. Thank you! Started working on v0.2.0. Refactoring the code so that I can include unit tests. No major features added (yet). Feel free to file bug reports or enhancement requests.
-* 2013-07-18 - Started refactoring the code for v0.1.0. Most notable difference is I removed `init()` and replaced it with `()`. Also, you can now pass a file name for the route map and Express Path will load it.
-
+* 2014-04-03 - __v0.2.4__ - Updated outdated dependencies.
+* 2013-08-25 - __v0.2.1__ - Major bug fix for those trying to pass array routes instead of a file path. Added acceptance test which runs various use cases for routes.
+* 2013-08-12 - __v0.2.0__ - Package was rewritten, making it testable. New major feature is the support for middlewares. Some minor features are turning on/off the console.logs and error throwing.
 
 ## Usage
 
