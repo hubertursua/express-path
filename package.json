@@ -16,6 +16,7 @@
     "url": "https://github.com/hyubs/express-path.git"
   },
   "dependencies": {
+    "colors": "^0.6.2",
     "string": "^1.8.0"
   },
   "devDependencies": {
