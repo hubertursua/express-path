@@ -37,8 +37,8 @@ describe('MethodHandler', function () {
 		});
 
 		it('should return undefined if the method does not exist', function () {
-			var mi = (new MethodHandler()).get('meow', beagle);
-			should.not.exist(mi);
+			var mi = (new MethodHandler()).get('meow', beagle)
+			should(mi).be.type('undefined');
 		});
 
 		it('should return the method if it exists', function () {
