@@ -4,3 +4,10 @@ node_js:
   - "0.10"
   - "0.8"
   - "0.6"
+deploy:
+  provider: npm
+  email: "hyubs.u@gmail.com"
+  api_key:
+    secure: SuKmZ49wP8uJgFCggOFnbyL97kZYch4Pi4f/qv4a01nx7j14Qt8fmTNj/kd5f6N0YG0OjIwyWcY+BNifucqDGdx9rnnShfDMIk0UVjYaujlDcpPfYB7L32RegMaeXfzawe9DSko3zLvK2M7RQwORCA6hAgkIz2kkcGpcsDBHEdE=
+  on:
+    tags: true
