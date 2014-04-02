@@ -16,7 +16,7 @@ $ npm install express-path
 
 ## Updates and Changes
 
-* 2014-04-03 - __v0.3.x__ - Updated outdated dependencies. Preview for coffeescript support.
+* 2014-04-03 - __v0.3.x__ - Updated outdated dependencies. Preview for CoffeeScript support.
 * 2013-08-25 - __v0.2.1__ - Major bug fix for those trying to pass array routes instead of a file path. Added acceptance test which runs various use cases for routes.
 * 2013-08-12 - __v0.2.0__ - Package was rewritten, making it testable. New major feature is the support for middlewares. Some minor features are turning on/off the console.logs and error throwing.
 
@@ -78,7 +78,6 @@ The 2nd parameter of `()` can be any of the following:
 		* 	`post`
 		* 	`put`
 		* 	`delete`
-	* 	`type` is an option parameter that allows you to specify the file type of your controller and middleware files. Accepts "js" or "coffee" (coffeescript).
 
 * 	a string containing a relative path to your route map file
 
@@ -201,6 +200,8 @@ expressPath(app, routes, { "controllersPath" : "routes" });
 *	`strict` (boolean) - Defaults to true
 
 	If this is true, Express Path will throw errors during route mapping. Otherwise, it just displays the errors in the console.
+
+*	`type` (string) - is an option parameter that allows you to specify the file type of your controller and middleware files. Accepts ```js``` or ```coffee``` (CoffeeScript).
 
 *	`verbose` (boolean) - Defaults to true
 
