@@ -2,9 +2,9 @@
 
 Easy route mapping for Express
 
-[![NPM version](https://badge.fury.io/js/express-path.png)](http://badge.fury.io/js/express-path)
-[![Build Status](https://travis-ci.org/hyubs/express-path.png?branch=master)](https://travis-ci.org/hyubs/express-path)
-[![Dependency Status](https://gemnasium.com/hyubs/express-path.png)](https://gemnasium.com/hyubs/express-path)
+[![NPM version](https://badge.fury.io/js/express-path.svg)](http://badge.fury.io/js/express-path)
+[![Build Status](https://travis-ci.org/hyubs/express-path.svg?branch=master)](https://travis-ci.org/hyubs/express-path)
+[![Dependency Status](https://gemnasium.com/hyubs/express-path.svg)](https://gemnasium.com/hyubs/express-path)
 
 ## Installation
 
