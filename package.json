@@ -1,9 +1,9 @@
 {
   "name": "express-path",
-  "version": "0.3.8",
+  "version": "1.0.0",
   "description": "Easy route mapping for Express",
-  "author": "Hyubs Ursua",
-  "main": "index.js",
+  "author": "Hyubs Ursua <hyubs.u@gmail.com>",
+  "main": "express-path.js",
   "homepage": "https://github.com/hyubs/express-path",
   "keywords": [
     "express",
@@ -16,8 +16,7 @@
     "url": "https://github.com/hyubs/express-path.git"
   },
   "dependencies": {
-    "colors": "~0.6.2",
-    "string": "~1.8.0"
+    "lodash": "~2.4.1"
   },
   "engines": {
     "node": ">= 0.8"
