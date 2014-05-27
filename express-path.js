@@ -78,25 +78,19 @@ ExpressPath.prototype._parseMap = function (route) {
 };
 
 ExpressPath.prototype._mapToExpress = function (app, mapInfo) {
-    var params;
+    var params = _.clone(mapInfo.actions);
 
     if (mapInfo.method === 'param') {
-        params = mapInfo.actions;
-
         if (mapInfo.param !== null) {
             params.unshift(mapInfo.param);
         }
-
-        app.param.apply(undefined, params);
     } else {
-        params = mapInfo.actions;
-
         if (mapInfo.urlPath !== null) {
             params.unshift(mapInfo.urlPath);
         }
-
-        app[mapInfo.method].apply(app, params);
     }
+
+    app[mapInfo.method].apply(app, params);
 
     if (this.showLogs) {
         this._log(mapInfo);
