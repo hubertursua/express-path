@@ -2,8 +2,10 @@
 // by Hyubs Ursua <hyubs.u@gmail.com>
 // https://github.com/hyubs/express-path.git
 
-var _    = require('lodash');
-var path = require('path');
+var _       = require('lodash');
+var chalk   = require('chalk');
+var path    = require('path');
+var sprintf = require("sprintf-js").sprintf;
 
 var ExpressPath = function (app, options) {
     options = options || {};
@@ -12,6 +14,7 @@ var ExpressPath = function (app, options) {
     this.middlewaresPath = options.middlewaresPath ||
                            path.join(app.get('expressRoot') ||
                            path.dirname(module.parent.filename), 'middlewares');
+    this.showLogs        = options.hasOwnProperty('showLogs') ? options.showLogs : true;
 };
 
 ExpressPath.prototype.map = function (routes) {
@@ -94,6 +97,40 @@ ExpressPath.prototype._mapToExpress = function (app, mapInfo) {
 
         app[mapInfo.method].apply(app, params);
     }
+
+    if (this.showLogs) {
+        this._log(mapInfo);
+    }
+};
+
+ExpressPath.prototype._log = function (mapInfo) {
+
+    var actionsToLog = function (actions) {
+        var log = [];
+        for (var i in actions) {
+            var action = actions[i];
+            var logAction;
+            if (typeof action === 'string') {
+                logAction = action;
+            } else if (typeof action === 'object') {
+                logAction = action.constructor.name;
+            } else {
+                logAction = typeof action;
+            }
+
+            log.push(logAction);
+        }
+
+        return log.join("\n          " + chalk.grey('->') + ' ');
+    };
+
+    var log = '';
+    log += chalk.cyan(sprintf('%7s', '' + mapInfo.method.toUpperCase() + ''));
+    log += (mapInfo.urlPath) ? ' ' + chalk.yellow(mapInfo.urlPath) : '';
+    log += (mapInfo.param) ? ' ' + chalk.yellow(mapInfo.param) : '';
+    log += (mapInfo.urlPath || mapInfo.param) ? "\n          " + chalk.grey('->') : '';
+    log += ' ' + actionsToLog(mapInfo.actions);
+    console.log(log);
 };
 
 module.exports = ExpressPath;
